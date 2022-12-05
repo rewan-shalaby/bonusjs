@@ -45,19 +45,29 @@
               this.parentNode.remove();
             };
           }
-          var current_tasks = document.querySelectorAll(".check");
+          var comp_tasks = document.querySelectorAll(".check");
           for (var j = 0; i < current_tasks.length; j++) {
-            current_tasks[j].onclick = function () {
-                this.parentNode.replace();
+            // current_tasks[j].onclick = replace();
+            comp_tasks[j].onclick = function () {
+                this.parentNode=complete();
                 // this.parentNode.replacewith("done");
             };
           }
         }
-        function replace() {
-            var a = document.getElementsByClassName(".check");
-            var b = document.createElement("span");
-            b.innerHTML = "done";
-            a.parentNode.replaceChild(b, a);
+        function complete() {
+          this.querySelector("#tasks").value+= `
+            <div class="comp">
+                <span id="completed">
+                    done
+                </span>
+              }`;
+
+        // this.replace(document.querySelector("#newtask input").value,"done");
+         
+            // var a = document.getElementsByClassName(".check");
+            // var b = document.createElement("span");
+            // b.innerHTML = "done";
+            // a.parentNode.replaceChild(b, a);
         }
       };
     </script>
